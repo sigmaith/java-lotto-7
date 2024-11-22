@@ -1,10 +1,9 @@
-package lotto;
+package lotto.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
-import lotto.model.Lotto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +20,7 @@ class LottoTest {
         assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 5, 5)))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-    
+
     @Test
     void Lotto_toString_재정의_기능_테스트() {
         Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
