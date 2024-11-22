@@ -29,4 +29,8 @@ public class Money {
     public Integer getNumberOfLottoes() {
         return money / MONEY_UNIT;
     }
+
+    public Double getEarningRates(int Earning) {
+        return (double) Earning / (double) money * 100;
+    }
 }

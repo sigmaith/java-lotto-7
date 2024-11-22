@@ -35,4 +35,8 @@ public enum Rank {
     public static Rank getRankByCode(Integer code) {
         return map.get(code);
     }
+
+    public Integer getWinningMoney() {
+        return winningMoney;
+    }
 }

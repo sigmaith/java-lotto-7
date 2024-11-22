@@ -3,23 +3,28 @@ package lotto.controller;
 import static lotto.controller.LottoDrawController.getBonusNumber;
 import static lotto.controller.LottoDrawController.getWinningNumbers;
 import static lotto.controller.PurchaseController.purchaseLottoes;
+import static lotto.view.OutputView.printEarningRates;
+import static lotto.view.OutputView.printPurchasedLottoes;
 import static lotto.view.OutputView.printWinningStatistics;
 
 import java.util.HashMap;
 import lotto.model.BonusNumber;
 import lotto.model.Lotto;
 import lotto.model.Lottoes;
+import lotto.model.Money;
 import lotto.model.WinningNumbers;
 
 public class LottoController {
     public static void run() {
-        Lottoes lottoes = purchaseLottoes();
+        Money money = purchaseLottoes();
+        Lottoes lottoes = new Lottoes(money);
+        printPurchasedLottoes(lottoes);
         WinningNumbers winningNumbers = getWinningNumbers();
         BonusNumber bonusNumber = getBonusNumber(winningNumbers);
-
         HashMap<Integer, Integer> matchingRecords = initialize();
         recordMatches(lottoes, winningNumbers, bonusNumber, matchingRecords);
         printWinningStatistics(matchingRecords);
+        printEarningRates(matchingRecords, money);
     }
 
     private static HashMap<Integer, Integer> initialize() {
