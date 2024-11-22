@@ -10,6 +10,10 @@ public class BonusNumber {
         this.number = number;
     }
 
+    public boolean isMatchedWith(Lotto lotto) {
+        return (lotto.getNumbers().contains(number));
+    }
+
     private void validateNoDuplicates(WinningNumbers winningNumbers, Integer bonusNumber) {
         if (winningNumbers.contains(bonusNumber)) {
             throw new IllegalArgumentException(BONUS_NUMBER_DUPLICATED_EXCEPTION.getDescription());

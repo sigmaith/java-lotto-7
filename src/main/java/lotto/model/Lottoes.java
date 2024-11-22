@@ -17,6 +17,10 @@ public class Lottoes {
         this.lottoes = lottoes;
     }
 
+    public List<Lotto> getLottoes() {
+        return lottoes;
+    }
+
     public Integer getNumber() {
         return lottoes.size();
     }
