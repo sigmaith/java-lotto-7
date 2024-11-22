@@ -17,7 +17,7 @@ public class Money {
         }
     }
 
-    public Integer getNumberOfLottos() {
+    public Integer getNumberOfLottoes() {
         return money / MONEY_UNIT;
     }
 }

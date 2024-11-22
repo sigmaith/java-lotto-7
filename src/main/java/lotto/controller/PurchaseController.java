@@ -1,16 +1,19 @@
 package lotto.controller;
 
 import static lotto.view.InputView.askMoney;
+import static lotto.view.OutputView.printPurchasedLottoes;
 
-import lotto.model.Lottos;
+import lotto.model.Lottoes;
 import lotto.model.Money;
 
 public class PurchaseController {
-    public static Lottos purchaseLottos() {
+    public static Lottoes purchaseLottoes() {
         while (true) {
             try {
                 Money money = askMoney();
-                return new Lottos(money);
+                Lottoes lottoes = new Lottoes(money);
+                printPurchasedLottoes(lottoes);
+                return lottoes;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
