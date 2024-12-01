@@ -10,9 +10,9 @@ public enum Exception {
     LOTTO_NOT_SIX_NUMBERS_EXCEPTION("로또 번호는 6개여야 합니다."),
     LOTTO_NUMBER_DUPLICATED_EXCEPTION("로또 번호는 1~45 범위의 중복되지 않는 6개의 숫자여야 합니다.");
     private final String description;
-    private final String header = "[ERROR]";
 
     Exception(final String description) {
+        String header = "[ERROR]";
         this.description = header + description;
     }
 

@@ -8,6 +8,7 @@ import static lotto.view.OutputView.printPurchasedLottoes;
 import static lotto.view.OutputView.printWinningStatistics;
 
 import java.util.HashMap;
+import java.util.Map;
 import lotto.model.BonusNumber;
 import lotto.model.Lotto;
 import lotto.model.Lottoes;
@@ -21,24 +22,22 @@ public class LottoController {
         printPurchasedLottoes(lottoes);
         WinningNumbers winningNumbers = getWinningNumbers();
         BonusNumber bonusNumber = getBonusNumber(winningNumbers);
-        HashMap<Integer, Integer> matchingRecords = initialize();
+        Map<Integer, Integer> matchingRecords = initialize();
         recordMatches(lottoes, winningNumbers, bonusNumber, matchingRecords);
         printWinningStatistics(matchingRecords);
         printEarningRates(matchingRecords, money);
     }
 
-    private static HashMap<Integer, Integer> initialize() {
-        HashMap<Integer, Integer> matchingRecords = new HashMap<>();
-        matchingRecords.put(3, 0);
-        matchingRecords.put(4, 0);
-        matchingRecords.put(5, 0);
-        matchingRecords.put(6, 0);
-        matchingRecords.put(7, 0);
+    private static Map<Integer, Integer> initialize() {
+        Map<Integer, Integer> matchingRecords = new HashMap<>();
+        for (int i = 0; i <= 7; i++) {
+            matchingRecords.put(i, 0);
+        }
         return matchingRecords;
     }
 
     private static void recordMatches(Lottoes lottoes, WinningNumbers winningNumbers, BonusNumber bonusNumber,
-                                      HashMap<Integer, Integer> matchingRecords) {
+                                      Map<Integer, Integer> matchingRecords) {
         for (Lotto lotto : lottoes.getLottoes()) {
             Integer idx = winningNumbers.getMatchCountWith(lotto);
             boolean matchedWithBonusNumber = bonusNumber.isMatchedWith(lotto);
@@ -46,7 +45,7 @@ public class LottoController {
         }
     }
 
-    private static void update(int idx, boolean matchedWithBonusNumber, HashMap<Integer, Integer> matchingRecords) {
+    private static void update(int idx, boolean matchedWithBonusNumber, Map<Integer, Integer> matchingRecords) {
         if (idx == 6) {
             matchingRecords.put(idx + 1, matchingRecords.get(idx + 1) + 1);
             return;
