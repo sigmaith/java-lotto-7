@@ -12,6 +12,10 @@ public class Money {
         return new Money(input);
     }
 
+    public int ticketNumber() {
+        return money / UNIT;
+    }
+
     private Money(String input) {
         validateNumberformat(input);
         int money = Integer.parseInt(input);

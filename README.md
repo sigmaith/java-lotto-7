@@ -12,9 +12,9 @@
 
 ## 로또를 발행하고 출력하는 기능
 
-- [ ] 구입한 금액만큼 로또를 발행한다. (로또 1장의 가격은 1,000원)
-- [ ] 발행한 로또 수량 및 번호를 출력한다.
-    - [ ] 로또 번호는 오름차순으로 정렬하여 보여준다.
+- [x] 구입한 금액만큼 로또를 발행한다. (로또 1장의 가격은 1,000원)
+- [x] 발행한 로또 수량 및 번호를 출력한다.
+    - [x] 로또 번호는 오름차순으로 정렬하여 보여준다.
 
 ## 당첨번호와 보너스 번호를 입력하는 기능
 
@@ -40,7 +40,7 @@
 ## 그 외 요구사항
 
 - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 을 발생시키고, "[ERROR]"로 시작하는 에러 메시지를 출력 후 그 부분부터 입력을 다시 받는다.
-- [ ] Random 값 추출은`camp.nextstep.edu.missionutils.Randoms`의`pickUniqueNumbersInRange()`를 활용한다.
+- [x] Random 값 추출은`camp.nextstep.edu.missionutils.Randoms`의`pickUniqueNumbersInRange()`를 활용한다.
   (Randoms.pickUniqueNumbersInRange(1, 45, 6);)
 - [ ] 사용자가 입력하는 값은`camp.nextstep.edu.missionutils.Console`의`readLine()`을 활용한다.
 - [ ] Lotto에 numbers 이외의 필드(인스턴스 변수)를 추가할 수 없다.

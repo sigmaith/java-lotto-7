@@ -1,6 +1,7 @@
 package lotto.controller;
 
 import java.util.function.Supplier;
+import lotto.domain.Lottoes;
 import lotto.domain.Money;
 import lotto.view.InputView;
 import lotto.view.OutputView;
@@ -16,10 +17,17 @@ public class LottoController {
 
     public void run() {
         Money money = getMoney();
+        Lottoes lottoes = getLottoes(money);
     }
 
     private Money getMoney() {
         return retry(() -> Money.from(inputView.askMoney()));
+    }
+
+    private Lottoes getLottoes(Money money) {
+        Lottoes lottoes = Lottoes.from(money);
+        outputView.printIssued(lottoes);
+        return lottoes;
     }
 
     private static <T> T retry(Supplier<T> supplier) {
