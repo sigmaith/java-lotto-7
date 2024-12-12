@@ -3,6 +3,7 @@ package lotto.controller;
 import java.util.function.Supplier;
 import lotto.domain.Lottoes;
 import lotto.domain.Money;
+import lotto.domain.WinningNumbers;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -18,6 +19,7 @@ public class LottoController {
     public void run() {
         Money money = getMoney();
         Lottoes lottoes = getLottoes(money);
+        WinningNumbers winningNumbers = getWinningNumbers();
     }
 
     private Money getMoney() {
@@ -29,6 +31,11 @@ public class LottoController {
         outputView.printIssued(lottoes);
         return lottoes;
     }
+
+    private WinningNumbers getWinningNumbers() {
+        return retry(() -> WinningNumbers.from(inputView.askWinningInfo()));
+    }
+
 
     private static <T> T retry(Supplier<T> supplier) {
         while (true) {

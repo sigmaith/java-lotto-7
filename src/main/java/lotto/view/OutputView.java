@@ -8,5 +8,6 @@ public class OutputView {
         System.out.println();
         System.out.printf("%d개를 구매했습니다.\n", lottoes.size());
         System.out.println(lottoes.toString());
+        System.out.println();
     }
 }
