@@ -16,6 +16,15 @@ public class Lotto {
         this.numbers = numbers;
     }
 
+    public static int getMatchedNumbersWith(Lotto winning, Lotto lotto) {
+        int count = (int) lotto.numbers.stream().filter(number -> winning.numbers.contains(number)).count();
+        return count;
+    }
+
+    public boolean contains(Integer bonusNumber) {
+        return numbers.contains(bonusNumber);
+    }
+
     private void validate(List<Integer> numbers) {
         if (numbers.size() != 6) {
             throw CustomException.from(ErrorMessage.SIX_NUMBER_LOTTO);

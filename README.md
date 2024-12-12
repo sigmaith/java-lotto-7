@@ -29,8 +29,9 @@
 
 ## 발행한 로또와 당첨번호 및 보너스 번호를 비교하여 당첨 내역 및 수익률을 산출하는 기능
 
-- [ ] 사용자가 구매한 로또 번호와 당첨 번호를 비교하여 당첨 내역 및 수익률을 산출한다.
-- [ ] 당첨 내역 및 수익률을 출력한다.
+- [x] 사용자가 구매한 로또 번호와 당첨 번호를 비교하여 당첨 내역을 산출한다.
+- [x] 당첨 내역에 기반해 수익률을 산출한다.
+- [x] 당첨 내역 및 수익률을 출력한다.
 - [x] 당첨 기준과 수익 금액은 다음과 같다.
 
 ```
@@ -41,14 +42,20 @@
 - 5등: 3개 번호 일치 / 5,000원
 ```
 
+## 로또 당첨 내역 및 수익률을 산출하는 기능
+
+- [x] 각 내역마다 몇 개의 로또가 당첨되었는지 출력한다.
+- [x] 수익률을 출력한다.
+    - [x] 수익률은 소수점 둘째 자리에서 반올림한다. (ex. 100.0%, 51.5%, 1,000,000.0%)
+
 ## 그 외 요구사항
 
-- [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 을 발생시키고, "[ERROR]"로 시작하는 에러 메시지를 출력 후 그 부분부터 입력을 다시 받는다.
+- [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 을 발생시키고, "[ERROR]"로 시작하는 에러 메시지를 출력 후 그 부분부터 입력을 다시 받는다.
 - [x] Random 값 추출은`camp.nextstep.edu.missionutils.Randoms`의`pickUniqueNumbersInRange()`를 활용한다.
   (Randoms.pickUniqueNumbersInRange(1, 45, 6);)
-- [ ] 사용자가 입력하는 값은`camp.nextstep.edu.missionutils.Console`의`readLine()`을 활용한다.
-- [ ] Lotto에 numbers 이외의 필드(인스턴스 변수)를 추가할 수 없다.
-- [ ] numbers의 접근 제어자인 private은 변경할 수 없다.
+- [x] 사용자가 입력하는 값은`camp.nextstep.edu.missionutils.Console`의`readLine()`을 활용한다.
+- [x] Lotto에 numbers 이외의 필드(인스턴스 변수)를 추가할 수 없다.
+- [x] numbers의 접근 제어자인 private은 변경할 수 없다.
 
 실행 결과 예시
 

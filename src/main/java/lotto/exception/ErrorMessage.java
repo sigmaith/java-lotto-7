@@ -9,7 +9,8 @@ public enum ErrorMessage {
     LOTTO_NUMBER_FORMAT("로또 번호는 숫자 형식 이어야 합니다"),
     BONUS_NUMBER_FORMAT("보너스 번호는 숫자 형식 이어야 합니다"),
     BONUS_NUMBER_DUPLICATED_WITH_WINNING_NUMBERS("보너스 번호는 당첨 번호와 중복되지 않아야 합니다"),
-    BONUS_NUMBER_NOT_IN_RANGE("보너스 번호는 1부터 45 사이의 숫자여야 합니다.");
+    BONUS_NUMBER_NOT_IN_RANGE("보너스 번호는 1부터 45 사이의 숫자여야 합니다."),
+    UNDEFINED_ORDINAL_AWARD("정의 되지 않은 당첨내역 서수 입니다.");
 
     private final String message;
 

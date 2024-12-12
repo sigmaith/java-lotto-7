@@ -16,6 +16,10 @@ public class Money {
         return money / UNIT;
     }
 
+    public double getEarningRate(Integer earnings) {
+        return (double) earnings / money * 100;
+    }
+
     private Money(String input) {
         validateNumberformat(input);
         int money = Integer.parseInt(input);

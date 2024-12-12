@@ -12,6 +12,10 @@ public class Lottoes {
         return new Lottoes(money);
     }
 
+    public List<Lotto> lottoes() {
+        return lottoes;
+    }
+
     private Lottoes(Money money) {
         List<Lotto> lottoes = new ArrayList<>();
         for (int i = 0; i < money.ticketNumber(); i++) {

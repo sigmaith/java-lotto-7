@@ -1,12 +1,14 @@
 package lotto.domain;
 
+import static lotto.domain.Lotto.getMatchedNumbersWith;
+
 import java.util.List;
 import lotto.controller.dto.WinningInfo;
 import lotto.exception.CustomException;
 import lotto.exception.ErrorMessage;
 
 public class WinningNumbers {
-    private Lotto lotto;
+    private Lotto winningLotto;
     private Integer bonusNumber;
 
     public static WinningNumbers from(WinningInfo winningInfo) {
@@ -17,7 +19,7 @@ public class WinningNumbers {
         List<Integer> winningNumbers = validateNumberFormat(winningInfo.winningNumbers());
         Integer bonusNumber = validateNumberFormatAndRange(winningInfo.bonusNumber());
         validateNotDuplicated(winningNumbers, bonusNumber);
-        this.lotto = new Lotto(winningNumbers);
+        this.winningLotto = new Lotto(winningNumbers);
         this.bonusNumber = bonusNumber;
     }
 
@@ -45,5 +47,16 @@ public class WinningNumbers {
         if (winningNumbers.contains(bonusNumber)) {
             throw CustomException.from(ErrorMessage.BONUS_NUMBER_DUPLICATED_WITH_WINNING_NUMBERS);
         }
+    }
+
+    public int getMatchingIndex(Lotto lotto) {
+        int matchedNumber = getMatchedNumbersWith(winningLotto, lotto);
+        if (matchedNumber == 6) {
+            return 7;
+        }
+        if (matchedNumber == 5 && lotto.contains(bonusNumber)) {
+            return 6;
+        }
+        return matchedNumber;
     }
 }
